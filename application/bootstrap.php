@@ -1,11 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 //
-if(file_exists('/bootstrap/bootstrap.php'))
-{
-	require_once('/bootstrap/bootstrap.php');
-	return;
-}
 
 // -- Environment setup --------------------------------------------------------
 
@@ -99,6 +94,16 @@ if (isset($_SERVER['KOHANA_ENV']))
 	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
 }
 
+
+/**
+ * Cookie Salt
+ * @see  http://kohanaframework.org/3.3/guide/kohana/cookies
+ *
+ * If you have not defined a cookie salt in your Cookie class then
+ * uncomment the line below and define a preferrably long salt.
+ */
+Cookie::$salt = 'Delsicdkeakducjlkdiekdjci9e934kws1@3fdksyY';
+
 /**
  * Initialize Kohana, setting the default options.
  *
@@ -146,3 +151,9 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'controller' => 'welcome',
 		'action'     => 'index',
 	));
+
+if(file_exists('/bootstrap/bootstrap.php'))
+{
+	require_once('/bootstrap/bootstrap.php');
+	return;
+}
