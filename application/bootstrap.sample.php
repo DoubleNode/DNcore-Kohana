@@ -123,6 +123,7 @@ Kohana::init(array(
 	'profile'    => Kohana::$environment !== Kohana::PRODUCTION,
 	'caching'    => Kohana::$environment === Kohana::PRODUCTION,
 ));
+error_reporting(E_ALL ^ E_DEPRECATED);
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
