@@ -141,6 +141,25 @@ Kohana::$config->attach(new Config_File);
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 /**
+ *
+ * Set this if you are using the Rollbar Module
+ */
+// required
+// define('_ROLLBAR_ACCESS_TOKEN_','2e5f4edec8e44191b3131b7150b45f19');
+// optional - environment name. any string will do.
+// define('_ROLLBAR_ENVIRONMENT_','production');
+// optional - path to directory your code is in. used for linking stack traces.
+// define('_ROLLBAR_ROOT_',NULL);
+
+/**
+ * Enable modules. Modules are referenced by a relative or absolute path.
+ */
+ Kohana::modules(array(
+ // 	'database'   				=> MODPATH.'database',   			// Database access
+ // 	'orm'        				=> MODPATH.'orm',        			// Object Relationship Mapping
+ ));
+
+/**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
